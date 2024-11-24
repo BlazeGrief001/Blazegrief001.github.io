@@ -1,0 +1,27 @@
+
+
+@media screen and (width < 420px) {
+
+	body {
+		font-size: 3px;
+	}
+
+	.logo {
+		font-size: 1em;
+	}
+	
+	.menu-item{
+		padding:0 5px;
+		margin:3 0px;
+	}
+	.menu-link{
+		font-size: 0.6em;
+	}
+	.searcher{
+		/*font-size: 0.7em*/
+		padding-left:8px ;
+		background: 7px ;
+		display: none;
+	}
+
+}
