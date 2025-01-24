@@ -21,7 +21,12 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgb("0 ,0 ,0");
+    background-color: black;
+    background: url('../background_image.jpg');
+    background-color : black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .game-quiz-container{
