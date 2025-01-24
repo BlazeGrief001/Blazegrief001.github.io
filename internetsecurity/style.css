@@ -11,7 +11,7 @@ html, body{
 
 body{
     font-family: 'Montserrat', serif;
-    
+    background: black;
 }
 
 main{
@@ -21,7 +21,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: black;
+    
 }
 
 .game-quiz-container{
