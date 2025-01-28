@@ -1,6 +1,6 @@
 const questions = [
     {
-        question: "Что делать, если Вы получили подозрительное письмо от «вышестоящего должностного лица» ?",
+        question: "Что делать, если Вы получили подозрительное письмо от «вышестоящего должностного лица»",
         optionA: "Вступить в переписку",
         optionB: "Игнорировать и удалить",
         optionC: "Переслать всем своим друзьям",
@@ -19,22 +19,30 @@ const questions = [
 
     {
         question: "Какой из следующих вариантов является признаком фишинга?",
-        optionA: "Письмо с ошибками и странными ссылками",
-        optionB: "Письмо от  коллеги с просьбой о помощи",
-        optionC: "Письмо с предложением выиграть крупную сумму",
+        optionA: "Письмо от  коллеги с просьбой о помощи",
+        optionB: "Письмо с ошибками и странными ссылками",
+        optionC: "Письмо от  коллеги с просьбой о помощи",
         optionD: "Все вышеперечисленное",
         correctOption: "optionD"
     },
 
     {
-        question: "Что делать, если  начинает вести себя странно?",
+        question: "Что делать, если Ваш компьютер начинает вести себя странно?",
         optionA: "Надеяться, что сам починится",
         optionB: "Отключить электропитание",
         optionC: "Запустить антивирус",
         optionD: "Устроить перезагрузку",
         correctOption: "optionC"
-    }
+    },
 
+    {
+        question: "акой самый надежный способ защитить свой компьютер от вирусов?",
+        optionA: "Установить антивирус",
+        optionB: "Не подключаться к интернету",
+        optionC: "Использовать только старые версии программ",
+        optionD: "Не пользоваться им",
+        correctOption: "optionA"
+    }
 
 ]
 
@@ -43,7 +51,7 @@ let shuffledQuestions = [] //empty array to hold shuffled selected questions
 
 function handleQuestions() { 
     //function to shuffle and push 10 questions to shuffledQuestions array
-    while (shuffledQuestions.length <= 3) {
+    while (shuffledQuestions.length <= 4) {
         const random = questions[Math.floor(Math.random() * questions.length)]
         if (!shuffledQuestions.includes(random)) {
             shuffledQuestions.push(random)
@@ -99,7 +107,7 @@ function checkForAnswer() {
             //set to delay question number till when next question loads
             setTimeout(() => {
                 questionNumber++
-            }, 1000)
+            }, 500)
         }
 
         else if (option.checked && option.value !== currentQuestionAnswer) {
@@ -111,7 +119,7 @@ function checkForAnswer() {
             //set to delay question number till when next question loads
             setTimeout(() => {
                 questionNumber++
-            }, 1000)
+            }, 500)
         }
     })
 }
@@ -124,14 +132,14 @@ function handleNextQuestion() {
     unCheckRadioButtons()
     //delays next question displaying for a second
     setTimeout(() => {
-        if (indexNumber <= 3) {
+        if (indexNumber <= 4) {
             NextQuestion(indexNumber)
         }
         else {
             handleEndGame()
         }
         resetOptionBackground()
-    }, 400);
+    }, 500);
 }
 
 //sets options background back to null after display the right/wrong colors
@@ -160,15 +168,15 @@ function handleEndGame() {
         remark = "Bad Grades, Keep Practicing."
         remarkColor = "red"
     }
-    else if (playerScore >= 3 && playerScore < 7) {
+    else if (playerScore >= 3 && playerScore < 5) {
         remark = "Average Grades, You can do better."
         remarkColor = "orange"
     }
-    else if (playerScore >= 4) {
+    else if (playerScore >= 5) {
         remark = "Excellent, Keep the good work going."
         remarkColor = "green"
     }
-    const playerGrade = (playerScore / 4 * 100
+    const playerGrade = (playerScore / 5) * 100
 
     //data to display to score board
     document.getElementById('remarks').innerHTML = remark
