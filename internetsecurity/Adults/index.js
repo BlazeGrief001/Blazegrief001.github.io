@@ -1,5 +1,50 @@
 const questions = [
+    
     {
+        question: "Откуда НЕ стоит брать информацию в Интернете для реферата?",
+        optionA: "Сайты средств массовой информации",
+        optionB: "Википедия",
+        optionC: "Электронные библиотеки",
+        optionD: "Сообщества в социальных сетях",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "Что такое фишинг в сети?",
+        optionA: "Онлайн-игра про ловлю рыбы",
+        optionB: "Вид мошенничества",
+        optionC: "Рекламные сообщения на тему рыбалки",
+        optionD: "Навязчивая реклама в сети",
+        correctOption: "optionB"
+    },
+    
+    {
+        question: "Какой из паролей является надёжным?",
+        optionA: "Alex2001",
+        optionB: "19032001",
+        optionC: "12345678",
+        optionD: "Vbif20hjvfyjd01",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "Какую информацию о себе можно выкладывать в Интернете в открытом доступе?",
+        optionA: "Место работы родителей",
+        optionB: "Номер телефона",
+        optionC: "Домашний адрес",
+        optionD: "О своих интересах",
+        correctOption: "optionD"
+    },
+
+    {
+        question: "Что не относится к сайтам?",
+        optionA: "История браузера",
+        optionB: "Социальная сеть",
+        optionC: "Вики",
+        optionD: "Поисковик",
+        correctOption: "optionA"
+    },
+        {
         question: "Что делать, если Вы получили подозрительное письмо от «вышестоящего должностного лица»",
         optionA: "Вступить в переписку",
         optionB: "Игнорировать и удалить",
@@ -36,7 +81,7 @@ const questions = [
     },
 
     {
-        question: "акой самый надежный способ защитить свой компьютер от вирусов?",
+        question: "Какой самый надежный способ защитить свой компьютер от вирусов?",
         optionA: "Установить антивирус",
         optionB: "Не подключаться к интернету",
         optionC: "Использовать только старые версии программ",
@@ -51,7 +96,7 @@ let shuffledQuestions = [] //empty array to hold shuffled selected questions
 
 function handleQuestions() { 
     //function to shuffle and push 10 questions to shuffledQuestions array
-    while (shuffledQuestions.length <= 4) {
+    while (shuffledQuestions.length <= 9) {
         const random = questions[Math.floor(Math.random() * questions.length)]
         if (!shuffledQuestions.includes(random)) {
             shuffledQuestions.push(random)
@@ -107,7 +152,7 @@ function checkForAnswer() {
             //set to delay question number till when next question loads
             setTimeout(() => {
                 questionNumber++
-            }, 500)
+            }, 1000)
         }
 
         else if (option.checked && option.value !== currentQuestionAnswer) {
@@ -119,7 +164,7 @@ function checkForAnswer() {
             //set to delay question number till when next question loads
             setTimeout(() => {
                 questionNumber++
-            }, 500)
+            }, 1000)
         }
     })
 }
@@ -132,14 +177,14 @@ function handleNextQuestion() {
     unCheckRadioButtons()
     //delays next question displaying for a second
     setTimeout(() => {
-        if (indexNumber <= 4) {
+        if (indexNumber <= 9) {
             NextQuestion(indexNumber)
         }
         else {
             handleEndGame()
         }
         resetOptionBackground()
-    }, 500);
+    }, 1000);
 }
 
 //sets options background back to null after display the right/wrong colors
@@ -164,19 +209,19 @@ function handleEndGame() {
     let remarkColor = null
 
     // condition check for player remark and remark color
-    if (playerScore <= 2) {
+    if (playerScore <= 3) {
         remark = "Bad Grades, Keep Practicing."
         remarkColor = "red"
     }
-    else if (playerScore >= 3 && playerScore < 5) {
+    else if (playerScore >= 4 && playerScore < 7) {
         remark = "Average Grades, You can do better."
         remarkColor = "orange"
     }
-    else if (playerScore >= 5) {
+    else if (playerScore >= 7) {
         remark = "Excellent, Keep the good work going."
         remarkColor = "green"
     }
-    const playerGrade = (playerScore / 5) * 100
+    const playerGrade = (playerScore / 10) * 100
 
     //data to display to score board
     document.getElementById('remarks').innerHTML = remark
